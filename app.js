@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
-const ArtistController = require('./controllers/Artist');
+const Artist = require('./controllers/Artist');
 
 require('dotenv').config({
   path: path.join(__dirname, './settings.env')
@@ -15,6 +15,6 @@ mongoose.connect(
 );
 app.use(bodyParser.json());
 app.get('/', (req, res) => res.send('Hello MongoDB'));
-app.post('/Artist', ArtistController.post);
+app.post('/Artist', Artist.post);
 
 app.listen(3000, () => console.log('It works!'));
