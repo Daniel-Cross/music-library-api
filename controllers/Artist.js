@@ -24,3 +24,22 @@ exports.get = (req, res) => {
     res.json(artist);
   });
 };
+
+exports.put = (req, res) => {
+  Artist.findById(req.params.artistId, (err, artist) => {
+    if (err) {
+      res.json('something went wrong');
+    }
+
+    artist.set({ name: req.body.name });
+    artist.set({ name: req.body.genre });
+
+    artist.save((updateErr, artistUpdated) => {
+      if (updateErr) {
+        res.json('could not update');
+      }
+
+      res.json(artistUpdated);
+    });
+  });
+};
