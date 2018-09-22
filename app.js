@@ -16,5 +16,7 @@ mongoose.connect(
 app.use(bodyParser.json());
 app.get('/', (req, res) => res.send('Hello MongoDB'));
 app.post('/Artist', Artist.post);
+app.get('/Artist', Artist.list);
+app.get('/Artist/:artistId', Artist.get);
 
 app.listen(3000, () => console.log('It works!'));

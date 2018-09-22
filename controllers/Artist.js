@@ -6,3 +6,21 @@ exports.post = (req, res) => {
     res.json(artistCreated);
   });
 };
+
+exports.list = (req, res) => {
+  Artist.find({}, (err, artists) => {
+    if (err) {
+      res.join('Something went wrong');
+    }
+    res.json(artists);
+  });
+};
+
+exports.get = (req, res) => {
+  Artist.findById(req.params.artistId, (err, artist) => {
+    if (err) {
+      res.json('Something went wrong');
+    }
+    res.json(artist);
+  });
+};
