@@ -31,7 +31,13 @@ describe('PUT Artist endpoint', () => {
         },
         body: {
           name: 'Oasis',
-          genre: 'Britpop'
+          genre: 'Britpop',
+          album: [
+            {
+              name: 'Definitely, Maybe',
+              year: 1994
+            }
+          ]
         }
       });
 
@@ -47,7 +53,8 @@ describe('PUT Artist endpoint', () => {
           __v: 0,
           _id: artistCreated._id.toString(),
           name: 'Oasis',
-          genre: 'Britpop'
+          genre: 'Britpop',
+          album: [null, null]
         });
         done();
       });

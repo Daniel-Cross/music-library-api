@@ -32,7 +32,8 @@ exports.put = (req, res) => {
     }
 
     artist.set({ name: req.body.name });
-    artist.set({ name: req.body.genre });
+    artist.set({ genre: req.body.genre });
+    artist.set({ album: [req.body.album.name, req.body.album.year] });
 
     artist.save((updateErr, artistUpdated) => {
       if (updateErr) {
