@@ -62,8 +62,7 @@ describe('POST album endpoint', () => {
       });
     });
   });
-});
-
-afterAll(() => {
-  mongoose.connection.close();
+  afterAll(() => {
+    mongoose.connection.close();
+  });
 });
