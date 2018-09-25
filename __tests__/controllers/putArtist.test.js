@@ -54,7 +54,7 @@ describe('PUT Artist endpoint', () => {
           _id: artistCreated._id.toString(),
           name: 'Oasis',
           genre: 'Britpop',
-          album: [null, null]
+          album: [{ name: 'Definitely Maybe', year: 1994 }]
         });
         done();
       });
